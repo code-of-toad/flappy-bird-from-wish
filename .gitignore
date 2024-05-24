@@ -34,3 +34,4 @@
 # USER
 cmake-build-debug
 .idea
+.refuser
