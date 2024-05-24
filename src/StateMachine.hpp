@@ -12,12 +12,12 @@ namespace ToadCode {
     class StateMachine {
         std::stack<StateRef> _states;
         StateRef             _newState;
-        bool                 _isAdding;
-        bool                 _isRemoving;
-        bool                 _isReplacing;
+        bool                 _isAdding{};
+        bool                 _isRemoving{};
+        bool                 _isReplacing{};
     public:
-        StateMachine()  {}
-        ~StateMachine() {}
+        StateMachine()  = default;
+        ~StateMachine() = default;
         void      addState(StateRef newState, bool isReplacing=true);
         void      removeState();
         void      processStateChanges();
