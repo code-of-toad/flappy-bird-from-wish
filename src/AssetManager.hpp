@@ -1,8 +1,8 @@
 #ifndef ASSETMANAGER_HPP
 #define ASSETMANAGER_HPP
 
-#include <SFML/Graphics.hpp>
 #include <map>
+#include <SFML/Graphics.hpp>
 
 namespace ToadCode {
 

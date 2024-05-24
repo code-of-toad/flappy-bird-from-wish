@@ -1,9 +1,9 @@
 #ifndef STATEMACHINE_HPP
 #define STATEMACHINE_HPP
 
-#include "State.hpp"
 #include <memory>
 #include <stack>
+#include "State.hpp"
 
 namespace ToadCode {
 
