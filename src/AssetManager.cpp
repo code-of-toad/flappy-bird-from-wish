@@ -1,3 +1,4 @@
+#include <iostream>
 #include "AssetManager.hpp"
 
 namespace ToadCode {

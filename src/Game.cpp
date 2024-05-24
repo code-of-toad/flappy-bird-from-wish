@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include "SplashState.hpp"
 
 namespace ToadCode {
 
