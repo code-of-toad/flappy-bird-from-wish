@@ -10,12 +10,12 @@ namespace ToadCode {
 
     void Game::_run() {
         float newTime, frameTime, interpolation;
-        float currentTime = this->_clock.getElapsedTime().asSeconds();
+        float currentTime = _clock.getElapsedTime().asSeconds();
         float accumulator = 0.0f;
 
-        while (this->_data->window.isOpen()) {
-            this->_data->machine.processStateChanges();
-            newTime = this->_clock.getElapsedTime().asSeconds();
+        while (_data->window.isOpen()) {
+            _data->machine.processStateChanges();
+            newTime = _clock.getElapsedTime().asSeconds();
             frameTime = newTime - currentTime;
 
             if (frameTime > 0.25f) {
@@ -25,14 +25,14 @@ namespace ToadCode {
             currentTime = newTime;
             accumulator += frameTime;
 
-            while (accumulator >= this->_dt) {
-                this->_data->machine.getActiveState()->handleInput();
-                this->_data->machine.getActiveState()->update(this->_dt);
-                accumulator -= this->_dt;
+            while (accumulator >= _dt) {
+                _data->machine.getActiveState()->handleInput();
+                _data->machine.getActiveState()->update(_dt);
+                accumulator -= _dt;
             }
 
-            interpolation = accumulator / this->_dt;
-            this->_data->machine.getActiveState()->draw(interpolation);
+            interpolation = accumulator / _dt;
+            _data->machine.getActiveState()->draw(interpolation);
         }
     }
 
