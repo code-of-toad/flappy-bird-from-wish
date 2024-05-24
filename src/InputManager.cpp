@@ -1,6 +1,6 @@
 #include "InputManager.hpp"
 
-namespace ToadCoad {
+namespace ToadCode {
 
     bool InputManager::isSpriteClicked(sf::Sprite obj,
                                        sf::Mouse::Button button,

@@ -3,7 +3,7 @@
 
 #include <SFML/Graphics.hpp>
 
-namespace ToadCoad {
+namespace ToadCode {
 
     class InputManager {
     public:

@@ -4,7 +4,7 @@
 #include <SFML/Graphics.hpp>
 #include <map>
 
-namespace ToadCoad {
+namespace ToadCode {
 
     class AssetManager {
         std::map<std::string, sf::Texture> _textures;

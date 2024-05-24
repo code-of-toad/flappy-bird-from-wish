@@ -1,6 +1,6 @@
 #include "AssetManager.hpp"
 
-namespace ToadCoad {
+namespace ToadCode {
 
     void AssetManager::loadTexture(const std::string& name, const std::string& filename) {
         sf::Texture tex;
