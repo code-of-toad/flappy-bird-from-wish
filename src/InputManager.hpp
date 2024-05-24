@@ -19,5 +19,4 @@ namespace ToadCode {
 
 }
 
-
 #endif //INPUTMANAGER_HPP
