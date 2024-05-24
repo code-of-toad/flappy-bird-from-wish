@@ -6,7 +6,7 @@ namespace ToadCode {
     public:
         virtual ~State() = default;
         virtual void init()         = 0;
-        virtual void handleUpdate() = 0;
+        virtual void handleInput() = 0;
         virtual void update()       = 0;
         virtual void draw(float dt) = 0;  // `dt` is for framerate-independent gameplay
         virtual void pause()        {}
