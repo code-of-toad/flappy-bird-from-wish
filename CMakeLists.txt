@@ -12,6 +12,8 @@ add_executable(sfml-engine-setup
         src/AssetManager.cpp
         src/InputManager.hpp
         src/InputManager.cpp
+        src/Game.hpp
+        src/Game.cpp
 )
 
 ############# SFML #############
