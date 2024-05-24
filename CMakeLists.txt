@@ -4,7 +4,10 @@ project(sfml-engine-setup)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(sfml-engine-setup
-        Main.cpp
+        src/Main.cpp
+        src/State.hpp
+        src/StateMachine.hpp
+        src/StateMachine.cpp
 )
 
 ############# SFML #############
