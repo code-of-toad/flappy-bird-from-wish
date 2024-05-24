@@ -39,7 +39,4 @@ namespace ToadCode {
         return this->_states.top();
     }
 
-
-
-
 }
