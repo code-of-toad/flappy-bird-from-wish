@@ -8,6 +8,8 @@ add_executable(sfml-engine-setup
         src/State.hpp
         src/StateMachine.hpp
         src/StateMachine.cpp
+        src/AssetManager.hpp
+        src/AssetManager.cpp
 )
 
 ############# SFML #############
