@@ -16,8 +16,8 @@ namespace ToadCode {
         bool                 _isRemoving{};
         bool                 _isReplacing{};
     public:
-        StateMachine()  = default;
-        ~StateMachine() = default;
+        StateMachine()  {};
+        ~StateMachine() {};
         void      addState(StateRef newState, bool isReplacing=true);
         void      removeState();
         void      processStateChanges();

@@ -1,8 +1,7 @@
-// #pragma once
-
 #include <iostream>
 #include <sstream>
 #include "SplashState.hpp"
+#include "MainMenuState.hpp"
 #include "DEFINITIONS.hpp"
 
 namespace ToadCode {
@@ -26,7 +25,7 @@ namespace ToadCode {
 
     void SplashState::update(float dt) {
         if (_clock.getElapsedTime().asSeconds() > SPLASH_STATE_SHOW_TIME) {
-            std::cout << "Go To Main Menu" << std::endl;
+            _data->machine.addState(StateRef(new MainMenuState(_data)), true);
         }
     }
 

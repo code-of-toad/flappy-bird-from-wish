@@ -4,7 +4,7 @@ namespace ToadCode {
 
     bool InputManager::isSpriteClicked(sf::Sprite obj,
                                        sf::Mouse::Button button,
-                                       sf::RenderWindow window) {
+                                       sf::RenderWindow& window) {
         if (sf::Mouse::isButtonPressed(button)) {
             sf::IntRect tempRect(obj.getPosition().x,
                                    obj.getPosition().y,

@@ -1,5 +1,5 @@
-#ifndef SPLASHSTATE_HPP
-#define SPLASHSTATE_HPP
+#ifndef MAINMENUSTATE_HPP
+#define MAINMENUSTATE_HPP
 
 #include <SFML/Graphics.hpp>
 #include "State.hpp"
@@ -7,12 +7,13 @@
 
 namespace ToadCode {
 
-    class SplashState : public State {
+    class MainMenuState : public State {
         GameDataRef _data;
-        sf::Clock   _clock;
         sf::Sprite  _background;
+        sf::Sprite  _title;
+        sf::Sprite  _playButton;
     public:
-        SplashState(GameDataRef data);
+        MainMenuState(GameDataRef data);
         void init();
         void handleInput();
         void update(float dt);
@@ -21,4 +22,4 @@ namespace ToadCode {
 
 }
 
-#endif //SPLASHSTATE_HPP
+#endif //MAINMENUSTATE_HPP

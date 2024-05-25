@@ -17,6 +17,8 @@ add_executable(sfml-engine-setup
         src/DEFINITIONS.hpp
         src/SplashState.hpp
         src/SplashState.cpp
+        src/MainMenuState.hpp
+        src/MainMenuState.cpp
 )
 
 ############# SFML #############

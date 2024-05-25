@@ -7,12 +7,12 @@ namespace ToadCode {
 
     class InputManager {
     public:
-        InputManager()  = default;
-        ~InputManager() = default;
+        InputManager()  {}
+        ~InputManager() {}
 
         bool isSpriteClicked(sf::Sprite        obj,
                              sf::Mouse::Button button,
-                             sf::RenderWindow  window);
+                             sf::RenderWindow& window);
 
         sf::Vector2i getMousePosition(const sf::RenderWindow& window);
     };

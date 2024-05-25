@@ -10,8 +10,8 @@ namespace ToadCode {
         std::map<std::string, sf::Texture> _textures;
         std::map<std::string, sf::Font>    _fonts;
     public:
-        AssetManager()  = default;
-        ~AssetManager() = default;
+        AssetManager()  {};
+        ~AssetManager() {};
 
         void         loadTexture(const std::string& name, const std::string& filename);
         sf::Texture& getTexture(const std::string& name);
