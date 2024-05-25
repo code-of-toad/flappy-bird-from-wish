@@ -4,6 +4,7 @@
 #include "DEFINITIONS.hpp"
 
 namespace ToadCode {
+
     GameState::GameState(GameDataRef data)
         : _data(data) {}
 
