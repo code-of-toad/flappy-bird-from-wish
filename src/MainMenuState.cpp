@@ -1,6 +1,7 @@
 #include <iostream>
 #include <sstream>
 #include "MainMenuState.hpp"
+#include "GameState.hpp"
 #include "DEFINITIONS.hpp"
 
 namespace ToadCode {
@@ -32,7 +33,7 @@ namespace ToadCode {
             }
 
             if (_data->input.isSpriteClicked(_playButton, sf::Mouse::Left, _data->window)) {
-                std::cout << "Go To Game Screen" << std::endl;
+                _data->machine.addState(StateRef(new GameState(_data)), true);
             }
         }
     }
