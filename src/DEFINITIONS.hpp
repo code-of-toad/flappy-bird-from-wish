@@ -24,6 +24,8 @@
 #define BIRD_FRAME_3_FILEPATH "resources/res/bird-03.png"
 #define BIRD_FRAME_4_FILEPATH "resources/res/bird-04.png"
 
+#define FLAPPY_FONT_FILEPATH "resources/fonts/FlappyFont.ttf"
+
 #define PIPE_MOVEMENT_SPEED  200.0f
 #define PIPE_SPAWN_FREQUENCY 0.8f
 

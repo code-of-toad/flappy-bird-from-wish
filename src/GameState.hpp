@@ -9,6 +9,7 @@
 #include "Bird.hpp"
 #include "Collision.hpp"
 #include "Flash.hpp"
+#include "HUD.hpp"
 
 namespace ToadCode {
 
@@ -20,6 +21,8 @@ namespace ToadCode {
         Bird*       _bird;
         Collision   _collision;
         Flash*      _flash;
+        HUD*        _hud;
+
         sf::Clock   _clock;
         int         _gameState;
         int         _score;

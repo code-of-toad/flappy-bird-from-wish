@@ -33,6 +33,8 @@ add_executable(sfml-engine-setup
         src/Collision.cpp
         src/Flash.hpp
         src/Flash.cpp
+        src/HUD.hpp
+        src/HUD.cpp
 )
 
 ############# SFML #############

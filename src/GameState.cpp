@@ -29,14 +29,19 @@ namespace ToadCode {
         _data->assets.loadTexture("Scoring Pipe",
                                   SCORING_PIPE_FILEPATH);
 
+        _data->assets.loadFont("Flappy Font",
+                               FLAPPY_FONT_FILEPATH);
+
         _pipe  = new Pipe(_data);
         _land  = new Land(_data);
         _bird  = new Bird(_data);
         _flash = new Flash(_data);
+        _hud   = new HUD(_data);
 
         _background.setTexture(_data->assets.getTexture("Game Background"));
 
         _score = 0;
+        _hud->updateScore(_score);
 
         _gameState = GameStates::eReady;
     }
@@ -95,7 +100,8 @@ namespace ToadCode {
                 for (size_t i = 0; i < scoringSprites.size(); i++) {
                     if (_collision.checkSpriteCollision(_bird->getSprite(), 0.55f, scoringSprites.at(i), 1.0f)) {
                         _score++;
-                        std::cout << "Score: " << _score << std::endl;
+                        // std::cout << "Score: " << _score << std::endl;
+                        _hud->updateScore(_score);
                         scoringSprites.erase(scoringSprites.begin() + i);
                     }
                 }
@@ -115,6 +121,7 @@ namespace ToadCode {
         _bird->draw();
 
         _flash->draw();
+        _hud->draw();
 
         _data->window.display();
     }
