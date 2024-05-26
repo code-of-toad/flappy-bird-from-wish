@@ -6,6 +6,7 @@
 #include "Game.hpp"
 #include "Pipe.hpp"
 #include "Land.hpp"
+#include "Bird.hpp"
 
 namespace ToadCode {
 
@@ -14,6 +15,7 @@ namespace ToadCode {
         sf::Sprite  _background;
         Pipe*       _pipe;
         Land*       _land;
+        Bird*       _bird;
         sf::Clock   _clock;
     public:
         GameState(GameDataRef data);
