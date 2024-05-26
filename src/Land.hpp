@@ -12,8 +12,9 @@ namespace ToadCode {
         std::vector<sf::Sprite> _landSprites;
     public:
         Land(GameDataRef data);
-        void moveLand(float dt);
-        void drawLand();
+        void                           moveLand(float dt);
+        void                           drawLand();
+        const std::vector<sf::Sprite>& getSprites() const;
     };
 
 }

@@ -32,4 +32,9 @@ namespace ToadCode {
         }
     }
 
+    const std::vector<sf::Sprite> &Land::getSprites() const {
+        return _landSprites;
+    }
+
+
 }

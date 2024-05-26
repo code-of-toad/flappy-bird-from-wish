@@ -7,6 +7,7 @@
 #include "Pipe.hpp"
 #include "Land.hpp"
 #include "Bird.hpp"
+#include "Collision.hpp"
 
 namespace ToadCode {
 
@@ -16,7 +17,9 @@ namespace ToadCode {
         Pipe*       _pipe;
         Land*       _land;
         Bird*       _bird;
+        Collision   _collision;
         sf::Clock   _clock;
+        int         _gameState;
     public:
         GameState(GameDataRef data);
         void init();

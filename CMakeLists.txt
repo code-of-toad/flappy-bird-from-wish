@@ -29,6 +29,8 @@ add_executable(sfml-engine-setup
         src/Land.cpp
         src/Bird.hpp
         src/Bird.cpp
+        src/Collision.hpp
+        src/Collision.cpp
 )
 
 ############# SFML #############

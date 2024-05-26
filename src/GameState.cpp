@@ -32,6 +32,8 @@ namespace ToadCode {
         _bird = new Bird(_data);
 
         _background.setTexture(_data->assets.getTexture("Game Background"));
+
+        _gameState = GameStates::eReady;
     }
 
     void GameState::handleInput() {
@@ -41,25 +43,40 @@ namespace ToadCode {
                 _data->window.close();
             }
             if (_data->input.isSpriteClicked(_background, sf::Mouse::Left, _data->window)) {
-                _bird->tap();
+                if (_gameState != GameStates::eGameOver) {
+                    _gameState = GameStates::ePlaying;
+                    _bird->tap();
+                }
             }
         }
     }
 
     void GameState::update(float dt) {
-        _pipe->movePipes(dt);
-        _land->moveLand(dt);
-        if (_clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY) {
-            _pipe->randomizePipeOffset();
-
-            _pipe->spawnPipeInvisible();
-            _pipe->spawnPipeBottom();
-            _pipe->spawnPipeTop();
-
-            _clock.restart();
+        if (_gameState != GameStates::eGameOver) {
+            _bird->animate(dt);
+            _land->moveLand(dt);
         }
-        _bird->animate(dt);
-        _bird->update(dt);
+
+        if (_gameState == GameStates::ePlaying) {
+            _pipe->movePipes(dt);
+            if (_clock.getElapsedTime().asSeconds() > PIPE_SPAWN_FREQUENCY) {
+                _pipe->randomizePipeOffset();
+
+                _pipe->spawnPipeInvisible();
+                _pipe->spawnPipeBottom();
+                _pipe->spawnPipeTop();
+
+                _clock.restart();
+            }
+            _bird->update(dt);
+
+            std::vector<sf::Sprite> landSprites = _land->getSprites();
+            for (size_t i = 0; i < landSprites.size(); i++) {
+                if (_collision.checkSpriteCollision(_bird->getSprite(), landSprites.at(i))) {
+                    _gameState = GameStates::eGameOver;
+                }
+            }
+        }
     }
 
     void GameState::draw(float dt) {

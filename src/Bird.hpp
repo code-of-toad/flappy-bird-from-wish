@@ -19,10 +19,11 @@ namespace ToadCode {
         float                    _rotation;
     public:
         Bird(GameDataRef data);
-        void draw();
-        void animate(float dt);
-        void update(float dt);
-        void tap();
+        void              draw();
+        void              animate(float dt);
+        void              update(float dt);
+        void              tap();
+        const sf::Sprite& getSprite() const;
     };
 
 }
