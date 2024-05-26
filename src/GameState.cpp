@@ -11,6 +11,20 @@ namespace ToadCode {
 
 
     void GameState::init() {
+        if (!_hitSoundBuffer.loadFromFile(SOUND_HIT_FILEPATH)) {
+            std::cerr << "Error loading sound effect: Hit.wav" << std::endl;
+        }
+        if (!_pointSoundBuffer.loadFromFile(SOUND_POINT_FILEPATH)) {
+            std::cerr << "Error loading sound effect: Point.wav" << std::endl;
+        }
+        if (!_wingSoundBuffer.loadFromFile(SOUND_WING_FILEPATH)) {
+            std::cerr << "Error loading sound effect: Wing.wav" << std::endl;
+        }
+
+        _hitSound.setBuffer(_hitSoundBuffer);
+        _pointSound.setBuffer(_pointSoundBuffer);
+        _wingSound.setBuffer(_wingSoundBuffer);
+
         _data->assets.loadTexture("Game Background",
                                   GAME_BACKGROUND_FILEPATH);
         _data->assets.loadTexture("Pipe Up",
@@ -57,6 +71,7 @@ namespace ToadCode {
                 if (_gameState != GameStates::eGameOver) {
                     _gameState = GameStates::ePlaying;
                     _bird->tap();
+                    _wingSound.play();
                 }
             }
         }
@@ -87,6 +102,8 @@ namespace ToadCode {
                 if (_collision.checkSpriteCollision(_bird->getSprite(), 0.7f, landSprites.at(i), 1.0f)) {
                     _gameState = GameStates::eGameOver;
                     _clock.restart();
+
+                    _hitSound.play();
                 }
             }
 
@@ -95,6 +112,8 @@ namespace ToadCode {
                 if (_collision.checkSpriteCollision(_bird->getSprite(), 0.55f, pipeSprites.at(i), 1.0f)) {
                     _gameState = GameStates::eGameOver;
                     _clock.restart();
+
+                    _hitSound.play();
                 }
             }
 
@@ -106,6 +125,8 @@ namespace ToadCode {
                         // std::cout << "Score: " << _score << std::endl;
                         _hud->updateScore(_score);
                         scoringSprites.erase(scoringSprites.begin() + i);
+
+                        _pointSound.play();
                     }
                 }
             }

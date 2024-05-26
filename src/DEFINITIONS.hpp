@@ -35,6 +35,10 @@
 #define MEDAL_GOLD_FILEPATH     "resources/res/Gold-Medal.png"
 #define MEDAL_PLATINUM_FILEPATH "resources/res/Platinum-Medal.png"
 
+#define SOUND_HIT_FILEPATH   "resources/audio/Hit.wav"
+#define SOUND_POINT_FILEPATH "resources/audio/Point.wav"
+#define SOUND_WING_FILEPATH  "resources/audio/Wing.wav"
+
 #define PIPE_MOVEMENT_SPEED  200.0f
 #define PIPE_SPAWN_FREQUENCY 0.8f
 
