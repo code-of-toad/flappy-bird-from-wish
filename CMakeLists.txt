@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.28)
-project(sfml-engine-setup)
+project(flappy-bird-from-wish)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(sfml-engine-setup
+add_executable(flappy-bird-from-wish
         src/Main.cpp
         src/State.hpp
         src/StateMachine.hpp
@@ -47,7 +47,7 @@ find_package(SFML COMPONENTS REQUIRED
         audio
         network
 )
-target_link_libraries(sfml-engine-setup
+target_link_libraries(flappy-bird-from-wish
         sfml-system
         sfml-window
         sfml-graphics
