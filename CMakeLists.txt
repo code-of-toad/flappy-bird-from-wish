@@ -23,6 +23,10 @@ add_executable(sfml-engine-setup
         src/GameState.cpp
         src/GameOverState.hpp
         src/GameOverState.cpp
+        src/Pipe.hpp
+        src/Pipe.cpp
+        src/Land.hpp
+        src/Land.cpp
 )
 
 ############# SFML #############
