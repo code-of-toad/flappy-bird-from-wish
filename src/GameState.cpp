@@ -72,14 +72,14 @@ namespace ToadCode {
 
             std::vector<sf::Sprite> landSprites = _land->getSprites();
             for (size_t i = 0; i < landSprites.size(); i++) {
-                if (_collision.checkSpriteCollision(_bird->getSprite(), landSprites.at(i))) {
+                if (_collision.checkSpriteCollision(_bird->getSprite(), 0.7f, landSprites.at(i), 1.0f)) {
                     _gameState = GameStates::eGameOver;
                 }
             }
 
             std::vector<sf::Sprite> pipeSprites = _pipe->getSprites();
             for (size_t i = 0; i < pipeSprites.size(); i++) {
-                if (_collision.checkSpriteCollision(_bird->getSprite(), pipeSprites.at(i))) {
+                if (_collision.checkSpriteCollision(_bird->getSprite(), 0.55f, pipeSprites.at(i), 1.0f)) {
                     _gameState = GameStates::eGameOver;
                 }
             }
