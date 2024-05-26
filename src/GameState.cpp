@@ -26,12 +26,17 @@ namespace ToadCode {
                                   BIRD_FRAME_3_FILEPATH);
         _data->assets.loadTexture("Bird Frame 4",
                                   BIRD_FRAME_4_FILEPATH);
+        _data->assets.loadTexture("Scoring Pipe",
+                                  SCORING_PIPE_FILEPATH);
 
-        _pipe = new Pipe(_data);
-        _land = new Land(_data);
-        _bird = new Bird(_data);
+        _pipe  = new Pipe(_data);
+        _land  = new Land(_data);
+        _bird  = new Bird(_data);
+        _flash = new Flash(_data);
 
         _background.setTexture(_data->assets.getTexture("Game Background"));
+
+        _score = 0;
 
         _gameState = GameStates::eReady;
     }
@@ -66,10 +71,11 @@ namespace ToadCode {
                 _pipe->spawnPipeBottom();
                 _pipe->spawnPipeTop();
 
+                _pipe->spawnScoringPipe();
+
                 _clock.restart();
             }
             _bird->update(dt);
-
             std::vector<sf::Sprite> landSprites = _land->getSprites();
             for (size_t i = 0; i < landSprites.size(); i++) {
                 if (_collision.checkSpriteCollision(_bird->getSprite(), 0.7f, landSprites.at(i), 1.0f)) {
@@ -83,6 +89,21 @@ namespace ToadCode {
                     _gameState = GameStates::eGameOver;
                 }
             }
+
+            if (_gameState == GameStates::ePlaying) {
+                std::vector<sf::Sprite>& scoringSprites = _pipe->getScoringSprites();
+                for (size_t i = 0; i < scoringSprites.size(); i++) {
+                    if (_collision.checkSpriteCollision(_bird->getSprite(), 0.55f, scoringSprites.at(i), 1.0f)) {
+                        _score++;
+                        std::cout << "Score: " << _score << std::endl;
+                        scoringSprites.erase(scoringSprites.begin() + i);
+                    }
+                }
+            }
+        }
+
+        if (_gameState == GameStates::eGameOver) {
+            _flash->show(dt);
         }
     }
 
@@ -92,6 +113,9 @@ namespace ToadCode {
         _pipe->drawPipes();
         _land->drawLand();
         _bird->draw();
+
+        _flash->draw();
+
         _data->window.display();
     }
 

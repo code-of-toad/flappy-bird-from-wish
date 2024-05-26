@@ -15,6 +15,7 @@
 
 #define PIPE_UP_FILEPATH   "resources/res/PipeUp.png"
 #define PIPE_DOWN_FILEPATH "resources/res/PipeDown.png"
+#define SCORING_PIPE_FILEPATH "resources/res/InvisibleScoringPipe.png"
 
 #define LAND_FILEPATH "resources/res/Land.png"
 
@@ -42,5 +43,7 @@ enum GameStates {
     ePlaying,
     eGameOver
 };
+
+#define FLASH_SPEED 1500.0f
 
 #endif //DEFINITIONS_HPP

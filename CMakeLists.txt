@@ -31,6 +31,8 @@ add_executable(sfml-engine-setup
         src/Bird.cpp
         src/Collision.hpp
         src/Collision.cpp
+        src/Flash.hpp
+        src/Flash.cpp
 )
 
 ############# SFML #############

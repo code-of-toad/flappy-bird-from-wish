@@ -8,6 +8,7 @@
 #include "Land.hpp"
 #include "Bird.hpp"
 #include "Collision.hpp"
+#include "Flash.hpp"
 
 namespace ToadCode {
 
@@ -18,8 +19,10 @@ namespace ToadCode {
         Land*       _land;
         Bird*       _bird;
         Collision   _collision;
+        Flash*      _flash;
         sf::Clock   _clock;
         int         _gameState;
+        int         _score;
     public:
         GameState(GameDataRef data);
         void init();
