@@ -14,12 +14,13 @@ namespace ToadCode {
         int                     _pipeSpawnYOffset;
     public:
         Pipe(GameDataRef data);
-        void spawnPipeBottom();
-        void spawnPipeTop();
-        void spawnPipeInvisible();
-        void movePipes(float dt);
-        void drawPipes();
-        void randomizePipeOffset();
+        void                           spawnPipeBottom();
+        void                           spawnPipeTop();
+        void                           spawnPipeInvisible();
+        void                           movePipes(float dt);
+        void                           drawPipes();
+        void                           randomizePipeOffset();
+        const std::vector<sf::Sprite>& getSprites() const;
     };
 }
 

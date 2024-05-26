@@ -76,6 +76,13 @@ namespace ToadCode {
                     _gameState = GameStates::eGameOver;
                 }
             }
+
+            std::vector<sf::Sprite> pipeSprites = _pipe->getSprites();
+            for (size_t i = 0; i < pipeSprites.size(); i++) {
+                if (_collision.checkSpriteCollision(_bird->getSprite(), pipeSprites.at(i))) {
+                    _gameState = GameStates::eGameOver;
+                }
+            }
         }
     }
 
