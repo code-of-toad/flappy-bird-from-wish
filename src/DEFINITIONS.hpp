@@ -26,6 +26,9 @@
 
 #define FLAPPY_FONT_FILEPATH "resources/fonts/FlappyFont.ttf"
 
+#define GAME_OVER_TITLE_FILEPATH "resources/res/Game-Over-Title.png"
+#define GAME_OVER_BODY_FILEPATH  "resources/res/Game-Over-Body.png"
+
 #define PIPE_MOVEMENT_SPEED  200.0f
 #define PIPE_SPAWN_FREQUENCY 0.8f
 
@@ -47,5 +50,7 @@ enum GameStates {
 };
 
 #define FLASH_SPEED 1500.0f
+
+#define TIME_BEFORE_GAME_OVER_APPEARS 1.50F
 
 #endif //DEFINITIONS_HPP

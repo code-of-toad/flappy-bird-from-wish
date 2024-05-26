@@ -2,6 +2,7 @@
 #include <sstream>
 #include "GameState.hpp"
 #include "DEFINITIONS.hpp"
+#include "GameOverState.hpp"
 
 namespace ToadCode {
 
@@ -85,6 +86,7 @@ namespace ToadCode {
             for (size_t i = 0; i < landSprites.size(); i++) {
                 if (_collision.checkSpriteCollision(_bird->getSprite(), 0.7f, landSprites.at(i), 1.0f)) {
                     _gameState = GameStates::eGameOver;
+                    _clock.restart();
                 }
             }
 
@@ -92,6 +94,7 @@ namespace ToadCode {
             for (size_t i = 0; i < pipeSprites.size(); i++) {
                 if (_collision.checkSpriteCollision(_bird->getSprite(), 0.55f, pipeSprites.at(i), 1.0f)) {
                     _gameState = GameStates::eGameOver;
+                    _clock.restart();
                 }
             }
 
@@ -110,6 +113,9 @@ namespace ToadCode {
 
         if (_gameState == GameStates::eGameOver) {
             _flash->show(dt);
+            if (_clock.getElapsedTime().asSeconds() > TIME_BEFORE_GAME_OVER_APPEARS) {
+                _data->machine.addState(StateRef(new GameOverState(_data, _score)), true);
+            }
         }
     }
 
