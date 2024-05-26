@@ -1,5 +1,5 @@
 #include <iostream>
-#include <sstream>
+#include <fstream>
 #include "DEFINITIONS.hpp"
 #include "GameOverState.hpp"
 #include "GameState.hpp"
@@ -13,12 +13,38 @@ namespace ToadCode {
     }
 
     void GameOverState::init() {
+        std::ifstream readFile;
+        readFile.open(HIGHSCORE_SAVE_FILEPATH);
+        if (readFile.is_open()) {
+            while (!readFile.eof()) {
+                readFile >> _highScore;
+            }
+        }
+        readFile.close();
+
+        std::ofstream writeFile(HIGHSCORE_SAVE_FILEPATH);
+        if (writeFile.is_open()) {
+            if (_score > _highScore) {
+                _highScore = _score;
+            }
+            writeFile << _highScore;
+        }
+        writeFile.close();
+
         _data->assets.loadTexture("Game Over Background",
                                   GAME_OVER_BACKGROUND_FILEPATH);
         _data->assets.loadTexture("Game Over Title",
                                   GAME_OVER_TITLE_FILEPATH);
         _data->assets.loadTexture("Game Over Body",
                                   GAME_OVER_BODY_FILEPATH);
+        _data->assets.loadTexture("Bronze Medal",
+                                  MEDAL_BRONZE_FILEPATH);
+        _data->assets.loadTexture("Silver Medal",
+                                  MEDAL_SILVER_FILEPATH);
+        _data->assets.loadTexture("Gold Medal",
+                                  MEDAL_GOLD_FILEPATH);
+        _data->assets.loadTexture("Platinum Medal",
+                                  MEDAL_PLATINUM_FILEPATH);
 
         _background.setTexture(_data->assets.getTexture("Game Over Background"));
         _gameOverTitle.setTexture(_data->assets.getTexture("Game Over Title"));
@@ -52,6 +78,18 @@ namespace ToadCode {
                                  _highScoreText.getGlobalBounds().height / 2);
         _highScoreText.setPosition(_data->window.getSize().x / 10 * 7.25,
                                    _data->window.getSize().y / 1.78);
+
+        if (_score >= PLATINUM_MEDAL_SCORE) {
+            _medal.setTexture(_data->assets.getTexture("Platinum Medal"));
+        } else if (_score >= GOLD_MEDAL_SCORE) {
+            _medal.setTexture(_data->assets.getTexture("Gold Medal"));
+        } else if (_score >= SILVER_MEDAL_SCORE) {
+            _medal.setTexture(_data->assets.getTexture("Silver Medal"));
+        } else {
+            _medal.setTexture(_data->assets.getTexture("Bronze Medal"));
+        }
+
+        _medal.setPosition(175, 465);
     }
 
     void GameOverState::handleInput() {
@@ -78,6 +116,7 @@ namespace ToadCode {
         _data->window.draw(_retryButton);
         _data->window.draw(_scoreText);
         _data->window.draw(_highScoreText);
+        _data->window.draw(_medal);
 
         _data->window.display();
     }

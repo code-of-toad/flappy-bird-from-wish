@@ -28,6 +28,12 @@
 
 #define GAME_OVER_TITLE_FILEPATH "resources/res/Game-Over-Title.png"
 #define GAME_OVER_BODY_FILEPATH  "resources/res/Game-Over-Body.png"
+#define HIGHSCORE_SAVE_FILEPATH  "resources/savefiles/Highscore.txt"
+
+#define MEDAL_BRONZE_FILEPATH   "resources/res/Bronze-Medal.png"
+#define MEDAL_SILVER_FILEPATH   "resources/res/Silver-Medal.png"
+#define MEDAL_GOLD_FILEPATH     "resources/res/Gold-Medal.png"
+#define MEDAL_PLATINUM_FILEPATH "resources/res/Platinum-Medal.png"
 
 #define PIPE_MOVEMENT_SPEED  200.0f
 #define PIPE_SPAWN_FREQUENCY 0.8f
@@ -52,5 +58,10 @@ enum GameStates {
 #define FLASH_SPEED 1500.0f
 
 #define TIME_BEFORE_GAME_OVER_APPEARS 1.50F
+
+#define BRONZE_MEDAL_SCORE   0
+#define SILVER_MEDAL_SCORE   10
+#define GOLD_MEDAL_SCORE     25
+#define PLATINUM_MEDAL_SCORE 50
 
 #endif //DEFINITIONS_HPP
