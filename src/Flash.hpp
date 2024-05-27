@@ -2,8 +2,8 @@
 #define FLASH_HPP
 
 #include <SFML/Graphics.hpp>
-#include "Game.hpp"
 #include "DEFINITIONS.hpp"
+#include "Game.hpp"
 
 namespace ToadCode {
 

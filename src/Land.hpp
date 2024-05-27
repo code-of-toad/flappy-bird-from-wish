@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <SFML/Graphics.hpp>
+#include "DEFINITIONS.hpp"
 #include "Game.hpp"
 
 namespace ToadCode {
