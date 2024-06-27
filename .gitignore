@@ -32,6 +32,6 @@
 *.app
 
 # USER
-cmake-build-debug
+__archive_01/cmake-build-debug
 .idea
 .refuser
