@@ -33,7 +33,6 @@ namespace cot {
         // Optional methods that derived states can override.
         virtual void pause()  {}
         virtual void resume() {}
-
     };
 
 }
