@@ -33,5 +33,6 @@
 
 # USER
 __archive_01/cmake-build-debug
+cmake-build-debug
 .idea
 .refuser
