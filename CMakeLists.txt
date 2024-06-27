@@ -5,6 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(flappy-bird-from-wish
         src/Main.cpp
+        src/State.hpp
+        src/StateMachine.cpp
+        src/StateMachine.hpp
 )
 
 ############# SFML #############
