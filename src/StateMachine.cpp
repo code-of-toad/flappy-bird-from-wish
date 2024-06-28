@@ -1,3 +1,5 @@
+#include <iostream>
+#include <cstdlib>
 #include "StateMachine.hpp"
 
 namespace cot {
@@ -35,6 +37,14 @@ namespace cot {
     }
 
     StateRef& StateMachine::getActiveState() {
+        // ERROR CHECK
+        if (_states.empty()) {
+            std::cerr << "StateMachine.cpp\n"
+                      << "----------------\n"
+                      << "cot::StateMachine::getActiveState()\n"
+                      << ":\n+-> Can't call `.top()` on an empty std::stack.\n";
+            exit(EXIT_FAILURE);
+        }
         return _states.top();
     }
 
