@@ -3,8 +3,7 @@
 namespace cot {
 
     void AssetManager::loadTexture(const std::string& name, const std::string& filename) {
-        sf::Texture tex;
-        if (tex.loadFromFile(filename))
+        if (sf::Texture tex; tex.loadFromFile(filename))
             _textures[name] = tex;
     }
 
@@ -13,8 +12,7 @@ namespace cot {
     }
 
     void AssetManager::loadFont(const std::string& name, const std::string& filename) {
-        sf::Font font;
-        if (font.loadFromFile(filename))
+        if (sf::Font font; font.loadFromFile(filename))
             _fonts[name] = font;
     }
 

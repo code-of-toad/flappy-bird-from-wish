@@ -2,7 +2,7 @@
 
 namespace cot {
 
-    void StateMachine::addState(StateRef newState, const bool isReplacing) {
+    void StateMachine::addState(StateRef newState, bool isReplacing) {
         _isAdding = true;
         _isReplacing = isReplacing;
 
@@ -34,10 +34,8 @@ namespace cot {
         }
     }
 
-    StateRef &StateMachine::getActiveState() {
+    StateRef& StateMachine::getActiveState() {
         return _states.top();
     }
-
-
 
 }
