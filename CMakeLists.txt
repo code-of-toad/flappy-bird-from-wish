@@ -10,6 +10,8 @@ add_executable(flappy-bird-from-wish
         src/StateMachine.hpp
         src/AssetManager.cpp
         src/AssetManager.hpp
+        src/InputManager.cpp
+        src/InputManager.hpp
 )
 
 ############# SFML #############
