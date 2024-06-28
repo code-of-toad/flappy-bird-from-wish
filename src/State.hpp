@@ -25,10 +25,10 @@ namespace cot {
         virtual ~State() = default;
 
         // Pure virtual functions that derived states must implement.
-        virtual void init()         = 0;
-        virtual void handleInput()  = 0;
-        virtual void update()       = 0;
-        virtual void draw(float dt) = 0;
+        virtual void init()           = 0;
+        virtual void handleInput()    = 0;
+        virtual void update(float dt) = 0;
+        virtual void draw(float dt)   = 0;
 
         // Optional methods that derived states can override.
         virtual void pause()  {}
