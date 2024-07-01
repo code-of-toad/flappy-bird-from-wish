@@ -14,6 +14,9 @@ add_executable(flappy-bird-from-wish
         src/InputManager.hpp
         src/Game.cpp
         src/Game.hpp
+        src/_DEFINITIONS.hpp
+        src/SplashState.cpp
+        src/SplashState.hpp
 )
 
 ############# SFML #############

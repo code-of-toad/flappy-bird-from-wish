@@ -1,10 +1,12 @@
 #include "Game.hpp"
+#include "SplashState.hpp"
 
 namespace cot {
 
     Game::Game(const int width, const int height, const std::string& title) {
         _data->window.create(sf::VideoMode(width, height), title,
                              sf::Style::Close | sf::Style::Titlebar);
+        _data->machine.addState(StateRef(std::make_unique<SplashState>(_data)));
         _run();
     }
 
